@@ -1,0 +1,216 @@
+/* ==================== GLASS BOX 공통 ==================== */
+.glass-box {
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.2));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  position: fixed;
+  z-index: 1000;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+/* ==================== HEADER 숨김 상태 ==================== */
+.page-header.is-hidden .logo-wrapper,
+.page-header.is-hidden .glass-box {
+  transform: translateY(-150%);
+  opacity: 0;
+}
+
+/* ==================== LOGO (왼쪽) ==================== */
+.logo-wrapper{
+  position: fixed;
+  z-index: 1000;
+  top: 70px;
+  left: 180.5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .4s ease;
+}
+.logo-wrapper img{
+  object-fit: contain;
+}
+
+/* ==================== GNB (상단, 글래스) ==================== */
+.gnb-wrapper{
+  position: fixed;
+  top: 80px;
+  left: 565.5px;
+  width: 787px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 4px 48px;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255,0.24);
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 2px 18px rgba(10,15,21,0.04);
+  z-index: 999;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all .3s ease;
+}
+.nav-link{
+  position: relative;
+  font-family: "Pretendard", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1FA2E8;
+  text-decoration: none;
+  padding: 8px 0;
+  transition: all .3s ease;
+}
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:0;
+  width:0; height:2px;
+  background:#1FA2E8;
+  transition: width .3s ease;
+}
+.nav-link:hover{ font-weight:700; }
+.nav-link:hover::after{ width:100%; }
+
+/* ==================== HAMBURGER (정밀 X 전환) ==================== */
+.hamburger-wrapper{
+  position: fixed;
+  top: 80px;
+  left: 1667.5px;
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.hamburger-btn{
+  position: relative;
+  width: 32px;   
+  height: 24px; 
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  z-index: 10;
+}
+.bar{
+  position: absolute;
+  left: 0;
+  width: 100%;      
+  height: 3px;
+  background: #1FA2E8;
+  border-radius: 2px;
+  transition: transform .3s ease, opacity .3s ease, top .3s ease, background .2s ease;
+}
+/* 기본 위치 */
+.bar:nth-child(1){ top: 0; }
+.bar:nth-child(2){ top: 10.5px; }  
+.bar:nth-child(3){ top: 21px; }
+.hamburger-btn:hover .bar{ background:#222; }
+
+/* OPEN → 정확한 X 교차 */
+.bar.open:nth-child(1){
+  transform: rotate(45deg);
+  top: 10.5px;
+}
+.bar.open:nth-child(2){ opacity: 0; }
+.bar.open:nth-child(3){
+  transform: rotate(-45deg);
+  top: 10.5px;
+}
+
+/* ==================== TEAM DROPDOWN (72×72 / 폰트 18px) ==================== */
+:root{ --main_color_main_1: #56AFDF; }
+
+
+.hamburger-wrapper .team-dropdown{
+  position: absolute;
+  top: calc(72px + 12px);
+  left: 0;                     
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  z-index: 1000;
+}
+.hamburger-wrapper .team-dropdown.open{
+  opacity:1; visibility:visible; transform: translateY(0);
+}
+
+.team-list{
+  list-style:none;
+  margin:0; padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+
+/* 동일 크기 카드 */
+.member-item,
+.team-dropdown a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:72px; height:72px;
+  padding:4px;
+  border-radius:20px;
+  border:2px solid rgba(242,244,255,0.2);
+  background: rgba(255,255,255,0.6);
+  box-shadow:0 4px 8px 3px rgba(0,0,0,0.05);
+
+  font-family:"Pretendard", sans-serif;
+  font-size:18px;         
+  font-weight:600;
+  line-height:150%;
+  letter-spacing:.36px;
+  color: var(--main_color_main_1);
+  text-decoration:none;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.member-item:hover,
+.team-dropdown a:hover{
+  transform: translateY(-1px);
+  box-shadow:0 6px 12px 4px rgba(0,0,0,0.06);
+}
+.member-item:active,
+.team-dropdown a:active{
+  transform: translateY(0);
+}
+
+/* ==================== 반응형 ==================== */
+@media (max-width: 900px){
+  .gnb-wrapper{ display:none; }
+  .logo-wrapper{ left:30px; }
+  .hamburger-wrapper{ left:auto; right:30px; top:30px; }
+  .hamburger-wrapper .team-dropdown{ left:auto; right:0; top: calc(72px + 10px); }
+}
+@media (max-width: 600px){
+  .logo-wrapper{ left:20px; top:20px; width:60px; height:60px; }
+  .logo-wrapper img{ width:40px; height:40px; }
+  .hamburger-wrapper{ left:auto; right:20px; top:20px; width:60px; height:60px; }
+  .hamburger-btn{ width:28px; height:22px; }
+  .bar{ height:2.5px; }
+  .bar:nth-child(1){ top:0; }
+  .bar:nth-child(2){ top:9.5px; }
+  .bar:nth-child(3){ top:19px; }
+  .bar.open:nth-child(1),
+  .bar.open:nth-child(3){ top:9.5px; }
+  .hamburger-wrapper .team-dropdown{ top: calc(60px + 10px); }
+}

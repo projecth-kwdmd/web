@@ -1,0 +1,286 @@
+:root {
+  --main: #1FA2E8;
+  --trout-800: #40424D;
+  --white: #fff;
+  --shadow-sm: 0 8px 16px rgba(0,0,0,0.12);
+  --shadow-lg: 0 30px 60px rgba(0,0,0,0.18);
+}
+
+/* 콘텐츠 변경 시 부드러운 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Layout ===== */
+.hero-fixed {
+  display: flex;
+  width: 1920px;
+  height: 1080px;
+  background: #fff;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* ===== Left ===== */
+.hero-fixed__left {
+  width: 982px;
+  flex-shrink: 0;
+  height: 100%;
+  padding: 0 239px 0 80px;
+  box-sizing: border-box;
+  position: relative;
+}
+.left-inner {
+  position: absolute;
+  top: 337px;
+  width: 100%;
+  animation: fadeIn 0.4s ease-out;
+}
+
+/* Title */
+.title {
+  margin: 0 0 40px 0;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 150%;
+  letter-spacing: 0.96px;
+  color: var(--main);
+}
+
+/* Body */
+.desc {
+  margin: 0;
+  color: var(--trout-800);
+  font-family: "Pretendard", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 170%;
+  letter-spacing: 0.48px;
+}
+
+/* 버튼 그룹 */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 100px;
+}
+.action-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+/* 버튼들 간 간격 10px */
+.chip-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 버튼 스타일 */
+.chip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  border: 2px solid var(--main);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--main);
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.48px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+.chip:hover {
+  background: var(--main);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== Right ===== */
+.hero-fixed__right {
+  width: 938px;
+  flex-shrink: 0;
+  height: 1080px;
+  background: var(--main);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Phone mockup */
+.phone {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 348px;
+  height: 725px;
+  border-radius: 60px;
+  background: #000;
+  overflow: hidden;
+}
+
+/* 폰 화면(321x712)을 담는 뷰포트 */
+.phone__screen_viewport {
+  position: absolute;
+  width: 321px;
+  height: 712px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 48px;
+}
+
+/* 폰 화면 이미지 */
+.phone__screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transform: translateX(var(--screen-offset));
+  opacity: var(--screen-opacity);
+  transition:
+    transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    opacity 0.4s ease-in-out;
+}
+
+.phone__overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* GNB 아이템 (버튼) */
+.gnb__item {
+  position: absolute;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer;
+  transition:
+    top 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    left 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.2s ease-out;
+  z-index: 5;
+}
+.gnb__item.is-active { transform: translateY(-10px) scale(1.1); z-index: 10; }
+.gnb__img {
+  width: 72px; height: 72px;
+  object-fit: contain;
+  transform: rotateZ(var(--icon-rotate));
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.gnb__item.is-active .gnb__img { transform: rotateZ(0deg); }
+
+/* GNB 중앙 점 */
+.gnb-center-dot {
+  position: absolute;
+  top: 977.15px;
+  left: 465.57px;
+  transform: translateX(-50%);
+  width: 17.35px; height: 17.35px;
+  background: #fff; border-radius: 50%;
+  z-index: 5;
+}
+
+/* ============================= */
+/* ✅ 메인 히어로(배경 SVG 1920×1363) */
+/* ============================= */
+
+/* 새 SVG 높이만큼 레이어 박스가 공간을 차지 → 아래 섹션 자연스럽게 내려감 */
+#main .hero-layers {
+  position: relative;
+  width: 100%;
+  height: 1363px;         /* 새 SVG 세로 */
+  overflow: visible;
+}
+
+/* 배경 SVG 자체: 고정 1920×1363, 중앙 정렬 */
+#main .hero-layers > .layer-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1920px;
+  height: 1363px;
+  transform: translateX(-50%);
+  object-fit: cover;
+  z-index: 1;
+}
+
+#main .hero-layers .layer-phone {
+  position: absolute;
+  left: 530px;
+  width: 1390px;
+  height: 1036px;
+  z-index: 2;
+  top: 269px;
+  transform: translateY(-200%);
+  animation: phoneDropSoft 1.8s ease-out forwards;
+  will-change: transform, top;
+}
+
+@keyframes phoneDropSoft {
+  /* 시작: 위에서 출발 */
+  0% {
+    transform: translateY(-200%);
+    top: 269px;
+  }
+
+  /* 부드럽게 가속하며 거의 착지 */
+  80% {
+    transform: translateY(0);
+    top: 294px;
+  }
+
+  /* 살짝 아래로 눌림 */
+  88% {
+    transform: translateY(1.8%);
+    top: 296px;
+  }
+
+  /* 약간 위로 되돌림 */
+  94% {
+    transform: translateY(-0.8%);
+    top: 294.5px;
+  }
+
+  /* 완전히 안정 */
+  100% {
+    transform: translateY(0);
+    top:220px;
+  }
+}
+
+
+
+/* 1920 이하 화면에서 비율 축소(높이도 함께 줄여 아래 섹션 밀림 유지) */
+@media (max-width: 1920px) {
+  #main .hero-layers {
+    transform: scale(calc(100vw / 1920));
+    transform-origin: top center;
+    height: calc(1363px * (100vw / 1920));
+  }
+}

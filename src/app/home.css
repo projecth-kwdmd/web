@@ -1,0 +1,669 @@
+/* ==================== 전역 ==================== */
+:root {
+  --blue: #1FA2E8;
+  --dark: #111827;
+  --gray: #6b7280;
+  --light-gray: #f8f9fa;
+  --container: 1400px;
+  --service-delta: 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 80px);
+}
+
+/* ==================== HERO ==================== */
+#main {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.hero-layers {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: 100vh;
+  overflow: visible;
+}
+
+.layer-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.layer-phone {
+  position: absolute;
+  top: 269px;
+  left: 530px;
+  width: 1390px;
+  height: 1036px;
+  z-index: 4;
+  transform: translateY(-200%);
+  animation: phoneDrop 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes phoneDrop {
+  0% {
+    transform: translateY(-200%);
+    top: 269px;
+  }
+
+  60% {
+    transform: translateY(-45%);
+    top: 288px;
+  }
+
+  80% {
+    transform: translateY(-55%);
+    top: 291px;
+  }
+
+  90% {
+    transform: translateY(-47%);
+    top: 293px;
+  }
+
+  100% {
+    transform: translateY(-50%);
+    top: 294px;
+  }
+}
+
+/* ==================== MARKET RESEARCH ==================== */
+.market-section {
+  background: #fff;
+  position: relative;
+  z-index: 10;
+}
+
+.mr-title {
+  position: absolute;
+  top: 1563px;
+  left: 80px;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.mr-sub {
+  position: absolute;
+  top: 1657px;
+  left: 80px;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--dark);
+  line-height: 1.8;
+}
+
+.market-card {
+  display: contents;
+}
+
+.card-number {
+  position: absolute;
+  font-family: Pretendard, sans-serif;
+  font-weight: 900;
+  color: var(--blue);
+  font-size: 140px;
+  line-height: 150%;
+  letter-spacing: 2.8px;
+}
+
+.num-01 {
+  top: 2019px;
+  left: 120px;
+}
+
+.num-02 {
+  top: 2959px;
+  left: 1020px;
+}
+
+.num-03 {
+  top: 3899px;
+  left: 120px;
+}
+
+.card-title {
+  position: absolute;
+  color: #40424D;
+  font-family: Pretendard, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: .96px;
+}
+
+.title-01 {
+  top: 2606px;
+  left: 120px;
+}
+
+.title-02 {
+  top: 3546px;
+  left: 1020px;
+}
+
+.title-03 {
+  top: 4486px;
+  left: 120px;
+}
+
+.card-desc {
+  position: absolute;
+  color: #40424D;
+  font-family: Pretendard, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 170%;
+  letter-spacing: .48px;
+}
+
+.desc-01 {
+  top: 2698px;
+  left: 120px;
+}
+
+.desc-02 {
+  top: 3638px;
+  left: 1020px;
+}
+
+.desc-03 {
+  top: 4578px;
+  left: 120px;
+}
+
+.market-card-image {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.market-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: opacity .4s ease;
+}
+
+.market-card-image .img-base {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.market-card-image .img-alt {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.market-card-image.active .img-base {
+  opacity: 0;
+}
+
+.market-card-image.active .img-alt {
+  opacity: 1;
+}
+
+.img-01 {
+  top: 1939px;
+  left: 980px;
+  width: 860px;
+}
+
+.img-02 {
+  top: 2879px;
+  left: 79px;
+  width: 860px;
+}
+
+.img-03 {
+  top: 3819px;
+  left: 980px;
+  width: 860px;
+}
+
+.summary-banner {
+  position: absolute;
+  top: 4999px;
+  left: 80px;
+  width: 1760px;
+  padding: 60px 160px;
+  border-radius: 40px;
+  border: 2px solid var(--blue);
+  background: #fff;
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, .05);
+  text-align: center;
+  color: var(--blue);
+  font-family: Pretendard, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 170%;
+  letter-spacing: .64px;
+}
+
+/* ==================== 원형 그래픽 ==================== */
+.circular-gra {
+  position: absolute;
+  top: 4677px;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ==================== MISSION ==================== */
+.mission-bg {
+  position: absolute;
+  top: 5815px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 1024px;
+  background: var(--blue);
+}
+
+.mission-line {
+  position: absolute;
+  font-family: Pretendard, sans-serif;
+  font-size: 140px;
+  line-height: 131%;
+  letter-spacing: 2.8px;
+  color: rgba(255, 255, 255, .4);
+  font-weight: 500;
+}
+
+.mission-line b {
+  color: #FFF;
+  font-weight: 700;
+}
+
+.mission-1 {
+  top: 5962px;
+  left: 80px;
+}
+
+.mission-2 {
+  top: 6145px;
+  left: 80px;
+}
+
+.mission-3 {
+  top: 6328px;
+  left: 80px;
+}
+
+.mission-4 {
+  top: 6511px;
+  left: 80px;
+}
+
+/* ==================== VALUE ==================== */
+.value-cards {
+  position: absolute;
+  top: 7079px;
+  left: 80px;
+  width: 1760px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* 각 카드 */
+.value-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 361px;
+  padding: 48px;
+  border: 2px solid var(--main_color-main_web, #1FA2E8);
+  border-radius: 32px;
+  background: #fff;
+
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(31, 162, 232, 0.15);
+}
+
+/* 제목 (상단 고정) */
+.value-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+}
+
+/* 라벨 (A. / B. / C.) */
+.value-card h4::before {
+  content: attr(data-label);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  color: #1FA2E8;
+
+  font-family: 'Pretendard', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  border-radius: 12px;
+}
+
+/* 본문  */
+.value-card p {
+  align-self: stretch;
+  font-size: 20px;
+  color: var(--gray);
+  line-height: 1.9;
+  margin: 0;
+}
+
+
+/* ==================== BLUE LOGO ==================== */
+.blue-logo {
+  position: absolute;
+  top: 7680px;
+  left: 755px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.blue-bg {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: none;
+}
+
+.blue-text {
+  position: absolute;
+  top: 412px;
+  left: 185px;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  transform: none;
+}
+
+/* ==================== LOGO 텍스트 ==================== */
+.logo-title {
+  position: absolute;
+  top: 7880px;
+  left: 80px;
+}
+
+.logo-label {
+  color: var(--blue);
+  font-family: Pretendard, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 170%;
+}
+
+.logo-description {
+  position: absolute;
+  top: 8034px;
+  left: 80px;
+  width: 563px;
+  color: #494D5B;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 170%;
+}
+
+.logo-description .em {
+  color: var(--blue);
+}
+
+/* ==================== GALLERY (480×1080 고정) ==================== */
+.gallery {
+  position: absolute;
+  top: 8766px;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 480px);
+  grid-auto-rows: 1080px;
+  gap: 0;
+  justify-content: center;
+  z-index: 9;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.gallery-item {
+  position: relative;
+  width: 480px;
+  height: 1080px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity .4s ease;
+}
+
+.gallery-item .img-base {
+  opacity: .35;
+  z-index: 1;
+}
+
+.gallery-item .img-alt {
+  opacity: 0;
+  z-index: 2;
+}
+
+.gallery-item:hover .img-base,
+.gallery-item.active .img-base {
+  opacity: .12;
+}
+
+.gallery-item:hover .img-alt,
+.gallery-item.active .img-alt {
+  opacity: 1;
+}
+
+:root {
+  /* 고정 좌표 */
+  --service-top: 9846px;
+  --service-delta: 0px;
+
+  /* 섹션 높이/여백 (필요 시 조정) */
+  --service-h: 300vh;
+  --hero-h: 1000px;
+  --kiosk-h: 1080px;
+  --gap-hero-kiosk: 0px;
+  --gap-kiosk-branding: 80px;
+  --branding-h: 600px;
+  --gap-branding-video: 80px;
+  --video-h: 990px;
+  --gap-video-footer: 80px;
+}
+
+/* ==================== SERVICE ==================== */
+main {
+  position: relative;
+}
+
+.service-anchor {
+  position: absolute;
+  top: 9846px;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+/* ==================== HERO FIXED ==================== */
+/* 섹션 묶음의 바깥 좌표만 고정 */
+.service-block {
+  position: absolute;
+  top: 9846px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.service-wrapper {
+  position: relative;
+  width: 100%;
+  height: 3960px;
+  z-index: 10;
+}
+
+.hero-fixed {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+}
+
+/* ==================== KIOSK ==================== */
+.kiosk-wrapper {
+  position: absolute;
+  top: calc(9846px + 300vh + 1000px + var(--service-delta));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 7;
+}
+
+/* 기준 좌표용 래퍼 (1920 기준 가운데 정렬) */
+.kiosk-stage {
+  position: relative;        /* ✅ 영상 absolute의 기준 */
+  width: 100%;
+  max-width: 1920px;
+}
+
+/* 배경 이미지 */
+.kiosk-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ✅ kioskVod.mp4 절대 좌표 */
+.kiosk-video {
+  position: absolute;
+  top: 359px;
+  left: 322px;
+  width: 550px;
+  height: 845px;
+  object-fit: cover;
+  z-index: 10;             
+  pointer-events: none;    
+}
+
+
+/* ==================== BRANDING ==================== */
+.branding-wrapper {
+  position: absolute;
+  top: calc(9846px + 300vh + 1000px + 1080px + 80px + var(--service-delta));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 6;
+}
+
+.branding-wrapper img {
+  width: 100%;
+  max-width: 1920px;
+  height: auto;
+  display: block;
+}
+
+/* ============ VIDEO (branding 바로 밑) ============ */
+.story_vid {
+  position: absolute;
+  top: calc(var(--service-top) + var(--service-h) + var(--hero-h) + var(--gap-hero-kiosk) + var(--kiosk-h) + var(--gap-kiosk-branding) + var(--branding-h) + var(--gap-branding-video) + var(--service-delta));
+  left: 0;
+  right: 0;
+  width: 1920px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.story_vid video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============ FOOTER (video 바로 밑) ============ */
+.footer {
+  position: absolute;
+  top: calc(var(--service-top) + var(--service-h) + var(--hero-h) + var(--gap-hero-kiosk) + var(--kiosk-h) + var(--gap-kiosk-branding) + var(--branding-h) + var(--gap-branding-video) + var(--video-h) + var(--gap-video-footer) + var(--service-delta));
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 4;
+}
+
+.footer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
