@@ -108,6 +108,7 @@ box-shadow: 0 5.053px 10.105px 3.789px rgba(0, 0, 0, 0.05);
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  background: rgba(255,255,255,0.6);
 }
 .hamburger-btn{
   position: relative;
