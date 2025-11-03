@@ -216,10 +216,8 @@ export default function Page() {
       {/* ==================== SERVICE + HERO FIXED (묶어서 배치) ==================== */}
       <section className="service-block">
         {/* 네 현재 Service 그대로 */}
-        <Service />
-
-        {/* 바로 아래에 HERO FIXED */}
         <HomeHeroFixed />
+        <Service />
       </section>
       {/* KIOSK IMAGE — Hero Fixed 바로 밑 */}
       <section id="kiosk" className="kiosk-wrapper">
@@ -252,7 +250,7 @@ export default function Page() {
       </section>
       {/* ==================== VIDEO ==================== */}
       <section id="video" className="story_vid" onClick={handleVideoClick}>
-        <video ref={videoRef} src="/project.h.mp4" playsInline muted />
+        <video ref={videoRef} src="/project.h.mp4" playsInline />
       </section>
       {/* ==================== FOOTER ==================== */}
       <section id="display" className="footer">
