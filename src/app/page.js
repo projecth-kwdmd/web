@@ -207,7 +207,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* BRANDING IMAGE — Kiosk 바로 밑 */} <section id="branding" className="branding-wrapper"> <img src="/branding.svg" alt="Project H Branding" className="branding-img" /> </section>
+      {/* BRANDING IMAGE — Kiosk 바로 밑 */} <section id="branding" className="branding-wrapper"> <img src="/branding-2.png" alt="Project H Branding" className="branding-img" /> </section>
 
       {/* ==================== VIDEO ==================== */}
       <section id="video" className="story_vid" onClick={handleVideoClick}>

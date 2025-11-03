@@ -86,7 +86,7 @@ export default function Service() {
         {/* ============ SLIDE 2 ============ */}
         <div className="service-slide slide-2" ref={slide2Ref}>
           <div className="service-content-box">
-            <img src="/slide_2.svg" alt="슬라이드 2" className="layer-bg" />
+            <img src="/slide_2.png" alt="슬라이드 2" className="layer-bg" />
           </div>
         </div>
 
