@@ -190,6 +190,7 @@ export default function Page() {
       </section>
       {/* ==================== SERVICE + HERO FIXED (묶어서 배치) ==================== */}
       <section className="service-block">
+        {/* 네 현재 Service 그대로 */}
         <HomeHeroFixed />
         <Service />
       </section>
@@ -224,7 +225,7 @@ export default function Page() {
       </section>
       {/* ==================== VIDEO ==================== */}
       <section id="video" className="story_vid" onClick={handleVideoClick}>
-        <video ref={videoRef} src="/project.h.mp4" playsInline muted />
+        <video ref={videoRef} src="/project.h.mp4" playsInline />
       </section>
       {/* ==================== FOOTER ==================== */}
       <section id="display" className="footer">
