@@ -7,7 +7,7 @@
   border-radius: 16px;
   position: fixed;
   z-index: 1000;
-  transition: transform .4s ease, opacity .4s ease;
+  transition: transform .4s ease, opacity .4s ease, background .4s ease;
 }
 
 /* ==================== HEADER 숨김 상태 ==================== */
@@ -113,7 +113,10 @@
 .bar:nth-child(1){ top: 0; }
 .bar:nth-child(2){ top: 10.5px; }  
 .bar:nth-child(3){ top: 21px; }
-.hamburger-btn:hover .bar{ background:#222; }
+.hamburger-wrapper:hover .bar,
+.hamburger-btn:hover .bar{
+  background: rgba(230,243,250,1);
+}
 
 /* OPEN → 정확한 X 교차 */
 .bar.open:nth-child(1){
@@ -150,6 +153,10 @@
 }
 .hamburger-wrapper .team-dropdown.open{
   opacity:1; visibility:visible; transform: translateY(0);
+}
+
+.hamburger-wrapper.glass-box:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.15));
 }
 
 .team-list{
