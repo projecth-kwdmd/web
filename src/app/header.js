@@ -58,20 +58,53 @@ export default function Header() {
   return (
     <header className={`page-header ${isHidden ? "is-hidden" : ""}`}>
       {/* 로고 */}
-      <div className="logo-wrapper">
-        <a href="#main" aria-label="Go to Main">
-          <img src="/logo.png" alt="Project H Logo" />
+      <div className="logo-wrapper glass-box">
+        <a href="#main" id="logo-wrapper-mainlink" aria-label="Go to Main">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="40"
+            height="30"
+            viewBox="0 0 40 30"
+            fill="none"
+          >
+            <path
+              d="M40 19.7432C40 25.4079 35.3288 30 29.5667 30C23.8045 30 19.1333 25.4079 19.1333 19.7432C19.1333 14.0786 23.8045 9.48648 29.5667 9.48648C35.3288 9.48648 40 14.0786 40 19.7432Z"
+              fill="#EBF0F4"
+            />
+            <path
+              d="M34.7833 13.7746C34.7833 19.4392 30.1122 24.0313 24.35 24.0313C18.5878 24.0313 13.9166 19.4392 13.9166 13.7746C13.9166 8.10994 18.5878 3.51783 24.35 3.51783C30.1122 3.51783 34.7833 8.10994 34.7833 13.7746Z"
+              fill="#EBF0F4"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.55453 0.616116C9.66774 -0.205309 11.199 -0.205385 12.3123 0.615965L30.0488 13.7017C30.8365 14.2829 31.3 15.1946 31.3 16.1628V26.923C31.3 28.6224 29.8987 30 28.17 30H3.13C1.40135 30 2.04369e-06 28.6224 0 26.923V8.46614C6.05649e-06 7.49804 0.463446 6.58637 1.25103 6.00522L8.55453 0.616116ZM9.735 21.3112C8.00635 21.3112 6.605 22.6888 6.605 24.3882V30H13.0417V24.3882C13.0417 22.6888 11.6403 21.3112 9.91168 21.3112H9.735Z"
+              fill="#1FA2E8"
+            />
+          </svg>
         </a>
       </div>
 
       {/* GNB */}
       <nav className="gnb-wrapper glass-box" aria-label="Primary">
-        <a href="#main" className="nav-link">Main</a>
-        <a href="#background" className="nav-link">Background</a>
-        <a href="#value" className="nav-link">Value</a>
-        <a href="#service" className="nav-link">Service</a>
-        <a href="#video" className="nav-link">Video</a>
-        <a href="#display" className="nav-link">Display</a>
+        <a href="#main" className="nav-link">
+          Main
+        </a>
+        <a href="#background" className="nav-link">
+          Background
+        </a>
+        <a href="#value" className="nav-link">
+          Value
+        </a>
+        <a href="#service" className="nav-link">
+          Service
+        </a>
+        <a href="#video" className="nav-link">
+          Video
+        </a>
+        <a href="#display" className="nav-link">
+          Display
+        </a>
       </nav>
 
       {/* 햄버거 + 드롭다운 */}
